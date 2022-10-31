@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid } from '@mui/material';
 import { validationSchema } from './validationSchema';
 import GenericInput from '../GenericInput';
+import PhoneNumberInput from '../PhoneNumberInput';
 
 export type FormData = {
   email: string;
@@ -60,7 +61,7 @@ const Form: FC = () => {
           type='text'
           values={values}
         />
-        <GenericInput
+        <PhoneNumberInput
           error={errors.phoneNumber}
           label='Phone number'
           name='phoneNumber'

@@ -24,7 +24,6 @@ export const validationSchema = Yup.object().shape({
     .required(messages.requiredField)
     .email(`Email${messages.fieldIsInvalid}`),
   phoneNumber: Yup.string()
-    .required(messages.requiredField)
     .min(10, messages.min10Caracters)
     .matches(phoneRegExp, `Email${messages.fieldIsInvalid}`),
   // TODO: Add further validations for security purposes.

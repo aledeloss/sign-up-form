@@ -2,7 +2,7 @@ import React from 'react';
 import { Grid, TextField } from '@mui/material';
 import { FormData } from '../Form';
 
-export interface InputProps {
+export interface GenericInputProps {
   error: any; // TODO: add more specific type
   label: string;
   name: string;
@@ -22,7 +22,7 @@ const GenericInput = ({
   shouldAutofocus = false,
   type,
   values
-}: InputProps) => {
+}: GenericInputProps) => {
   const handleChange = (value: string) => {
     setValues(value);
   };
