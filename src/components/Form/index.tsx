@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid } from '@mui/material';
@@ -15,7 +15,7 @@ export type FormData = {
   confirmPassword: string;
 };
 
-const Form: FC = () => {
+const Form = ({ sendData }: { sendData: FormData }) => {
   const defaultInputValues: FormData = {
     email: '',
     firstName: '',
@@ -34,10 +34,6 @@ const Form: FC = () => {
   } = useForm({
     resolver: yupResolver(validationSchema)
   });
-
-  const sendData = (data: FormData) => {
-    console.log(data);
-  };
 
   return (
     <form onSubmit={handleSubmit(sendData)}>
