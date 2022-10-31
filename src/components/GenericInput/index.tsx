@@ -1,29 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Grid, TextField } from '@mui/material';
+import { FormData } from '../Form';
 
 export interface InputProps {
-  autofocus?: boolean;
-  error?: any; // TODO: add more specific type
+  error: any; // TODO: add more specific type
   label: string;
   name: string;
+  register: Function;
+  setValues: any; // (value: string) => void;
   shouldAutofocus?: boolean;
   type: 'text' | 'tel' | 'email' | 'password';
+  values: FormData;
 }
 
 const GenericInput = ({
   error,
   label,
   name,
+  register,
+  setValues,
   shouldAutofocus = false,
-  type
+  type,
+  values
 }: InputProps) => {
-  const [value, setValue] = useState('');
-
   const handleChange = (value: string) => {
-    setValue(value);
+    setValues(value);
   };
-
-  console.log(value);
 
   return (
     <Grid item xs={12} sm={6}>
@@ -33,13 +35,14 @@ const GenericInput = ({
         error={error}
         helperText={error?.message}
         label={label}
+        {...register(name)}
         name={name}
         onChange={(event) => {
-          handleChange(event.target.value);
+          handleChange({ ...values, [name]: event.target.value });
         }}
         sx={{ width: '100%' }}
         type={type}
-        value={value}
+        value={values[name]}
       />
     </Grid>
   );
