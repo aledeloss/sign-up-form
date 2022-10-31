@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { TextField } from '@mui/material';
+import { Grid, TextField } from '@mui/material';
 
 export interface InputProps {
   autofocus?: boolean;
-  error: any; // TODO: add more specific type
+  error?: any; // TODO: add more specific type
   label: string;
   name: string;
   shouldAutofocus?: boolean;
@@ -26,20 +26,22 @@ const GenericInput = ({
   console.log(value);
 
   return (
-    <TextField
-      autoFocus={shouldAutofocus}
-      margin='dense'
-      error={error}
-      helperText={error?.message}
-      label={label}
-      name={name}
-      onChange={(event) => {
-        handleChange(event.target.value);
-      }}
-      sx={{ width: '100%' }}
-      type={type}
-      value={value}
-    />
+    <Grid item xs={12} sm={6}>
+      <TextField
+        autoFocus={shouldAutofocus}
+        margin='dense'
+        error={error}
+        helperText={error?.message}
+        label={label}
+        name={name}
+        onChange={(event) => {
+          handleChange(event.target.value);
+        }}
+        sx={{ width: '100%' }}
+        type={type}
+        value={value}
+      />
+    </Grid>
   );
 };
 

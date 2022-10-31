@@ -1,17 +1,12 @@
 import React from 'react';
 import './App.css';
-import GenericInput from './components/GenericInput';
+import Form from './components/Form';
 
 const App = () => {
   return (
     <div className='App'>
-      <GenericInput
-        error={{ message: 'Ups' }}
-        label={'First name'}
-        name={'firstName'}
-        shouldAutofocus={true}
-        type={'text'}
-      />
+      <h1>Sign up</h1>
+      <Form />
     </div>
   );
 };
