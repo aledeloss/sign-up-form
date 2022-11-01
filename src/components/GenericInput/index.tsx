@@ -8,7 +8,7 @@ export interface GenericInputProps {
   label: string;
   name: string;
   register: Function;
-  setValues: React.Dispatch<React.SetStateAction<FormData>>;
+  setValues: React.Dispatch<React.SetStateAction<any>>;
   shouldAutofocus?: boolean;
   type: 'text' | 'tel' | 'email' | 'password';
   values: FormData;
@@ -43,7 +43,7 @@ const GenericInput = ({
         }}
         sx={{ width: '100%' }}
         type={type}
-        value={(values[name])}
+        value={values[name as keyof FormData]}
       />
     </Grid>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import InputMask from 'react-input-mask';
 import { Grid, TextField } from '@mui/material';
 import { GenericInputProps } from '../GenericInput';
+import { FormData } from '../Form';
 
 // TODO: Review YUP validation for this field, as it is broken since the mask was added.
 // Refactor can be made, for including this field in the generic input.
@@ -21,16 +22,19 @@ const PhoneNumberInput = ({
     <Grid item xs={12} sm={6}>
       <InputMask
         mask='(999) 999-9999'
-        value={values[name]}
+        value={values[name as keyof FormData]}
         maskChar=' '
         onChange={(event) => {
-          handleChange({ ...values, [name]: event.target.value });
+          handleChange({
+            ...values,
+            [name as keyof FormData]: event.target.value
+          });
         }}
       >
         {() => (
           <TextField
             margin='dense'
-            error={!!error}
+            error={error}
             helperText={error?.message}
             label={label}
             name={name}
