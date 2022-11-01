@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
+import React, { BaseSyntheticEvent, useState } from 'react';
+import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid } from '@mui/material';
 import { validationSchema } from './validationSchema';
@@ -15,7 +15,14 @@ export type FormData = {
   confirmPassword: string;
 };
 
-const Form = ({ sendData }: { sendData: FormData }) => {
+const Form = ({
+  sendData
+}: {
+  sendData: (
+    data: FieldValues,
+    event?: BaseSyntheticEvent<object, any, any> | undefined
+  ) => void;
+}) => {
   const defaultInputValues: FormData = {
     email: '',
     firstName: '',

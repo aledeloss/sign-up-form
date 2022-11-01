@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { BaseSyntheticEvent, useState } from 'react';
 import './App.css';
 import { Container } from '@mui/material';
 import Message from './components/Message.tsx';
 import Form from './components/Form';
+import { FieldValues } from 'react-hook-form';
 
 const App = () => {
   const [isMessageShown, setIsMessageShown] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const pageTitle = 'Sign up';
 
-  const sendData = (data: FormData) => {
+  const sendData = (
+    data: FieldValues,
+    event?: BaseSyntheticEvent<object, any, any> | undefined
+  ): any => {
     console.log(data);
     const randomNumberForMocking = Date.now();
     setIsSuccess(randomNumberForMocking % 3 !== 0);

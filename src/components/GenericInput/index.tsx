@@ -1,13 +1,14 @@
 import React from 'react';
 import { Grid, TextField } from '@mui/material';
 import { FormData } from '../Form';
+import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface GenericInputProps {
-  error: any; // TODO: add more specific type
+  error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
   label: string;
   name: string;
   register: Function;
-  setValues: any; // (value: string) => void;
+  setValues: React.Dispatch<React.SetStateAction<FormData>>;
   shouldAutofocus?: boolean;
   type: 'text' | 'tel' | 'email' | 'password';
   values: FormData;
@@ -23,7 +24,7 @@ const GenericInput = ({
   type,
   values
 }: GenericInputProps) => {
-  const handleChange = (value: string) => {
+  const handleChange = (value: FormData) => {
     setValues(value);
   };
 
@@ -42,7 +43,7 @@ const GenericInput = ({
         }}
         sx={{ width: '100%' }}
         type={type}
-        value={values[name]}
+        value={(values[name])}
       />
     </Grid>
   );

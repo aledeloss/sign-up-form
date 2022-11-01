@@ -7,6 +7,7 @@ type MessageProps = {
 const Message = ({ isSuccess, setIsMessageShown }: MessageProps) => {
   const successMessage = 'You have successfully signed in!';
   const errorMessage = 'We are sorry, there was an error.';
+
   return (
     <Alert
       onClose={() => {
