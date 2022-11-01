@@ -104,8 +104,8 @@ const Form = ({
       <Button
         type='submit'
         variant='contained'
-        color='success'
-        sx={{ margin: '2px' }}
+        color='primary'
+        sx={{ margin: '2px', width: '100%' }}
       >
         Accept
       </Button>
