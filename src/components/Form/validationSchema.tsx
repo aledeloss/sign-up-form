@@ -1,9 +1,5 @@
 import * as Yup from 'yup';
 
-const phoneRegExp =
-  // TODO: Check if this regex works properly to our purposes.
-  /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
 const messages = {
   min3Characters: 'This field must have at least 3 characters.',
   min4Characters: 'This field must have at least 4 characters.',
@@ -23,9 +19,7 @@ export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required(messages.requiredField)
     .email(`Email${messages.fieldIsInvalid}`),
-  phoneNumber: Yup.string()
-    .min(10, messages.min10Caracters)
-    .matches(phoneRegExp, `Email${messages.fieldIsInvalid}`),
+  phoneNumber: Yup.string().min(10, messages.min10Caracters),
   // TODO: Add further validations for security purposes.
   password: Yup.string()
     .required(messages.requiredField)

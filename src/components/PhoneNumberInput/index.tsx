@@ -24,6 +24,7 @@ const PhoneNumberInput = ({
         mask='(999) 999-9999'
         value={values[name as keyof FormData]}
         maskChar=' '
+        {...register(name)}
         onChange={(event) => {
           handleChange({
             ...values,
