@@ -24,10 +24,6 @@ const GenericInput = ({
   type,
   values
 }: GenericInputProps) => {
-  const handleChange = (value: FormData) => {
-    setValues(value);
-  };
-
   return (
     <Grid item xs={12} sm={6}>
       <TextField
@@ -39,7 +35,7 @@ const GenericInput = ({
         {...register(name)}
         name={name}
         onChange={(event) => {
-          handleChange({ ...values, [name]: event.target.value });
+          setValues({ ...values, [name]: event.target.value });
         }}
         sx={{ width: '100%' }}
         type={type}

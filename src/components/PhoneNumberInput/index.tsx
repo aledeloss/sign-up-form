@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import InputMask from 'react-input-mask';
 import { Grid, TextField } from '@mui/material';
 import { GenericInputProps } from '../GenericInput';
@@ -14,9 +14,6 @@ const PhoneNumberInput = ({
   type,
   values
 }: GenericInputProps) => {
-  const handleChange = (value: string) => {
-    setValues(value);
-  };
   return (
     <Grid item xs={12} sm={6}>
       <InputMask
@@ -25,17 +22,14 @@ const PhoneNumberInput = ({
         maskChar=' '
         {...register(name)}
         onChange={(event) => {
-          handleChange({
-            ...values,
-            [name as keyof FormData]: event.target.value
-          });
+          setValues({ ...values, [name]: event.target.value });
         }}
       >
         {() => (
           <TextField
             margin='dense'
-            error={error}
-            helperText={error?.message}
+            error={Boolean(error)}
+            helperText={error?.message as ReactNode}
             label={label}
             name={name}
             sx={{ width: '100%' }}
