@@ -39,7 +39,8 @@ const Form = ({
     handleSubmit,
     formState: { errors }
   } = useForm({
-    resolver: yupResolver(validationSchema)
+    resolver: yupResolver(validationSchema),
+    reValidateMode: 'onBlur'
   });
 
   return (
