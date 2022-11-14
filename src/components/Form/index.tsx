@@ -16,12 +16,14 @@ export type FormData = {
 };
 
 const Form = ({
-  sendData
+  sendData,
+  hasSucceded
 }: {
   sendData: (
     data: FieldValues,
     event?: BaseSyntheticEvent<object, any, any> | undefined
   ) => void;
+  hasSucceded: boolean;
 }) => {
   const defaultInputValues: FormData = {
     email: '',
@@ -47,6 +49,7 @@ const Form = ({
     <form onSubmit={handleSubmit(sendData)}>
       <Grid container columnSpacing={{ xs: 1 }} sx={{ margin: '2em' }}>
         <GenericInput
+          isDisabled={hasSucceded}
           error={errors.firstName}
           label='First name'
           name='firstName'
@@ -57,6 +60,7 @@ const Form = ({
           values={values}
         />
         <GenericInput
+          isDisabled={hasSucceded}
           error={errors.lastName}
           label='Last name'
           name='lastName'
@@ -66,6 +70,7 @@ const Form = ({
           values={values}
         />
         <PhoneNumberInput
+          isDisabled={hasSucceded}
           error={errors.phoneNumber}
           label='Phone number'
           name='phoneNumber'
@@ -75,6 +80,7 @@ const Form = ({
           values={values}
         />
         <GenericInput
+          isDisabled={hasSucceded}
           error={errors.email}
           label='Email'
           name='email'
@@ -84,6 +90,7 @@ const Form = ({
           values={values}
         />
         <GenericInput
+          isDisabled={hasSucceded}
           error={errors.password}
           label='Password'
           name='password'
@@ -93,6 +100,7 @@ const Form = ({
           values={values}
         />
         <GenericInput
+          isDisabled={hasSucceded}
           error={errors.confirmPassword}
           label='Confirm password'
           name='confirmPassword'
@@ -103,9 +111,10 @@ const Form = ({
         />
       </Grid>
       <Button
+        disabled={hasSucceded}
         type='submit'
         variant='contained'
-        color='primary'
+        color='success'
         sx={{ margin: '2px', width: '100%' }}
       >
         Accept

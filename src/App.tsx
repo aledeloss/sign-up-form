@@ -28,7 +28,7 @@ const App = () => {
       {isMessageShown && (
         <Message setIsMessageShown={setIsMessageShown} isSuccess={isSuccess} />
       )}
-      <Form sendData={sendData} />
+      <Form sendData={sendData} hasSucceded={isSuccess} />
     </Container>
   );
 };

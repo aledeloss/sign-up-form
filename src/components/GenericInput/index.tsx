@@ -5,6 +5,7 @@ import { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form';
 
 export interface GenericInputProps {
   error: FieldError | Merge<FieldError, FieldErrorsImpl<any>> | undefined;
+  isDisabled: boolean;
   label: string;
   name: string;
   register: Function;
@@ -15,6 +16,7 @@ export interface GenericInputProps {
 }
 
 const GenericInput = ({
+  isDisabled,
   error,
   label,
   name,
@@ -27,6 +29,7 @@ const GenericInput = ({
   return (
     <Grid item xs={12} sm={6}>
       <TextField
+        disabled={isDisabled}
         autoFocus={shouldAutofocus}
         margin='dense'
         error={error}

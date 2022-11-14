@@ -7,6 +7,7 @@ import { FormData } from '../Form';
 // Refactor can be made, for including this field in the generic input.
 const PhoneNumberInput = ({
   error,
+  isDisabled,
   label,
   name,
   register,
@@ -20,6 +21,7 @@ const PhoneNumberInput = ({
         mask='(999) 999-9999'
         value={values[name as keyof FormData]}
         maskChar=' '
+        disabled={isDisabled}
         {...register(name)}
         onChange={(event) => {
           setValues({ ...values, [name]: event.target.value });
@@ -27,6 +29,7 @@ const PhoneNumberInput = ({
       >
         {() => (
           <TextField
+            disabled={isDisabled}
             margin='dense'
             error={Boolean(error)}
             helperText={error?.message as ReactNode}
