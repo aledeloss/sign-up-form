@@ -10,7 +10,7 @@ For running the project in your local, please run the following commands in your
 
 ## Deployment
 
-You may find a demo of the form in https://sign-up-form-aledeloss.vercel.app/.
+You may find a demo of the form at https://sign-up-form-aledeloss.vercel.app/.
 
 ## Known issues
 
