@@ -4,13 +4,12 @@ import { Grid, TextField } from '@mui/material';
 import { GenericInputProps } from '../GenericInput';
 import { FormData } from '../Form';
 
-// TODO: Review YUP validation for this field, as it is broken since the mask was added.
 // Refactor can be made, for including this field in the generic input.
 const PhoneNumberInput = ({
   error,
   label,
   name,
-  register, // not implemented yet
+  register,
   setValues,
   type,
   values
