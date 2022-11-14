@@ -8,6 +8,10 @@ For running the project in your local, please run the following commands in your
 - `npm install`,
 - `npm run dev`.
 
+## Deployment
+
+You may find a demo of the form in https://sign-up-form-aledeloss.vercel.app/.
+
 ## Known issues
 
 - The validation in the phone number field is currently not working. When applying the mask for the pattern, it got broken. And given the time set for the task, I decided to move forward with the functionality.
