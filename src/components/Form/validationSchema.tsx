@@ -19,7 +19,9 @@ export const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required(messages.requiredField)
     .email(`Email${messages.fieldIsInvalid}`),
-  phoneNumber: Yup.string().min(10, messages.min10Caracters),
+  phoneNumber: Yup.string()
+    .min(10, messages.min10Caracters)
+    .transform((value) => value.replace(/[^\d]/g, '')),
   // TODO: Add further validations for security purposes.
   password: Yup.string()
     .required(messages.requiredField)
