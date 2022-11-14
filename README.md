@@ -14,8 +14,6 @@ You may find a demo of the form at https://sign-up-form-aledeloss.vercel.app/.
 
 ## Known issues
 
-- The validation in the phone number field is currently not working. When applying the mask for the pattern, it got broken. And given the time set for the task, I decided to move forward with the functionality.
-- For a better UX, the field validations should run on blur, and not only on submit.
 - Password validation rules are weak for a production sign up page and should be improved.
 
 ## Next steps
