@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { FieldValues, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button, Grid } from '@mui/material';
@@ -19,10 +19,7 @@ const Form = ({
   sendData,
   hasSucceded
 }: {
-  sendData: (
-    data: FieldValues,
-    event?: BaseSyntheticEvent<object, any, any> | undefined
-  ) => void;
+  sendData: (data: FieldValues) => void;
   hasSucceded: boolean;
 }) => {
   const defaultInputValues: FormData = {

@@ -9,7 +9,7 @@ export interface GenericInputProps {
   label: string;
   name: string;
   register: Function;
-  setValues: React.Dispatch<React.SetStateAction<any>>;
+  setValues: React.Dispatch<React.SetStateAction<FormData>>;
   shouldAutofocus?: boolean;
   type: 'text' | 'tel' | 'email' | 'password';
   values: FormData;

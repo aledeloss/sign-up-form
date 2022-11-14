@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent, useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { Container } from '@mui/material';
 import Message from './components/Message.tsx';
@@ -10,10 +10,7 @@ const App = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const pageTitle = 'Sign up';
 
-  const sendData = (
-    data: FieldValues,
-    event?: BaseSyntheticEvent<object, any, any> | undefined
-  ): any => {
+  const sendData = (data: FieldValues): void => {
     console.log(data);
     const randomNumberForMocking = Date.now();
     setIsSuccess(randomNumberForMocking % 3 !== 0);
